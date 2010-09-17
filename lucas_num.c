@@ -25,6 +25,13 @@ int isLucas ( int num ) {
   /* by default, not a Lucas number */
   ret = -1;
 
+  /* check for L_0 and L_1 */
+  if (num == 2) {
+    return 0;
+  } else if (num == 1) {
+    return 1;
+  }
+
   /* L_(n-1) */
   prev1=1;
   /* L_(n-2) */
