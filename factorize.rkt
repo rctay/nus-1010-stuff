@@ -8,18 +8,22 @@
               (if (= (modulo n i) 0)
                   #f
                   (loop (sub1 i)))))))
-  (let loop ([i 2] [n num] [result '()])
-    (if (> i n)
-        result
-        (if (not (prime? i))
-            (loop (add1 i) n result)
-            (if (= 0 (modulo n i))
-                ; keep decomposing
-                (loop i (/ n i) (cons i result))
-                (loop (add1 i) n result))))))
+  (cons
+   (if (< num 0)
+       -1
+       1)
+   (let loop ([i 2] [n (abs num)] [result '()])
+     (if (> i n)
+         result
+         (if (not (prime? i))
+             (loop (add1 i) n result)
+             (if (= 0 (modulo n i))
+                 ; keep decomposing
+                 (loop i (/ n i) (cons i result))
+                 (loop (add1 i) n result)))))))
 
 
 (factorize 19)
 (factorize 4)
 (factorize 77)
-(factorize 300)
+(factorize -300)
