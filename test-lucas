@@ -4,8 +4,7 @@ SRC=lucas_num.c
 
 $CC -Wall -g $SRC && (
 	cat input | ./a.exe \
-	# strip carriage returns - just in case
-	| tr -d "\r" \
+	| tr -d "\r" \  # strip carriage returns - just in case
 	> actual &&
 	diff -u actual exp && echo "pass!" || (
 		echo "failed!";
