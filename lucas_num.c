@@ -5,9 +5,9 @@ int isLucas ( int num );
 int main () {
   int num;
 
-  scanf("%d", &num);
-
-  printf("%d", isLucas (num));
+  /* loop on input */
+  while (scanf("%d", &num) == 1)
+    printf("%d", isLucas (num));
 
   return 0;
 }
