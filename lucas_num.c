@@ -1,6 +1,4 @@
 #include <stdio.h>
-#define TRUE 1
-#define FASLE 0
 
 int isLucas ( int num );
 
@@ -45,7 +43,6 @@ int isLucas ( int num ) {
     prev1 = cur;
 
     if (num = cur) {
-      Lucas = TRUE;
       ret = i;
       break;
     }
