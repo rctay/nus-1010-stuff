@@ -39,7 +39,7 @@ int isLucas ( int num ) {
 
   cur = prev1+prev2;
 
-  for (i=2; i < num; i++) {
+  for (i=2; cur <= num; i++) {
     cur = prev1+prev2;
 
     /* L_(n-1) becomes the new L_(n-2) */
