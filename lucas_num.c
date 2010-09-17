@@ -12,6 +12,8 @@ int main () {
   isLucas (num);
 
   printf("%d", isLucas (num));
+
+  return 0;
 }
 
 
