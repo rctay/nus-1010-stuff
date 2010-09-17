@@ -47,7 +47,7 @@ int isLucas ( int num ) {
     /* L_(n) becomes the new L_(n-1) */
     prev1 = cur;
 
-    if (num = cur) {
+    if (num == cur) {
       ret = i;
       break;
     }
