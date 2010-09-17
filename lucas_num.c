@@ -9,19 +9,23 @@ int main () {
 
   scanf("%d", &num);
 
-  isLucas (num);
-
   printf("%d", isLucas (num));
 
   return 0;
 }
 
-
+/**
+ * Returns -1 if not a Lucas number; else, an integer indicating the term of
+ * the Lucas number.
+ */
 int isLucas ( int num ) {
 
   int cur, prev1, prev2;
 
-  int Lucas, i;
+  int ret, i;
+
+  /* by default, not a Lucas number */
+  ret = -1;
 
   /* L_(n-1) */
   prev1=1;
@@ -40,15 +44,12 @@ int isLucas ( int num ) {
     /* L_(n) becomes the new L_(n-1) */
     prev1 = cur;
 
-    printf ("L%d=%d\n", i , cur);
-
     if (num = cur) {
       Lucas = TRUE;
-      printf("%d", i);
+      ret = i;
       break;
-    } else {
-      printf( "-1\n");
     }
-    return Lucas;
   }
+
+  return ret;
 }
