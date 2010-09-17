@@ -7,7 +7,7 @@ int main () {
 
   /* loop on input */
   while (scanf("%d", &num) == 1)
-    printf("%d", isLucas (num));
+    printf("%d\n", isLucas (num));
 
   return 0;
 }
