@@ -1,13 +1,14 @@
+(define (prime? n)
+  (if (<= n 3)
+      #t
+      (let loop ([i (floor (sqrt n))])
+        (if (= i 1)
+            #t
+            (if (= (modulo n i) 0)
+                #f
+                (loop (sub1 i)))))))
+
 (define (factorize num)
-  (define (prime? n)
-    (if (<= n 3)
-        #t
-        (let loop ([i (floor (sqrt n))])
-          (if (= i 1)
-              #t
-              (if (= (modulo n i) 0)
-                  #f
-                  (loop (sub1 i)))))))
   (cons
    (if (< num 0)
        -1
