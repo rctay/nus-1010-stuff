@@ -30,8 +30,6 @@ int isLucas ( int num ) {
   /* L_(n-2) */
   prev2=2;
 
-  printf("L1=%d\nL2=%d\n", prev1, prev2);
-
   cur = prev1+prev2;
 
   for (i=3; i < num; i++) {
