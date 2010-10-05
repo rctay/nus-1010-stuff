@@ -19,14 +19,18 @@ int double_digit(int num) {
 	int i;
 	int curr = num;
 	int digit;
+	int ret = 0;
 
 	for (i = 0; i <= digits; i++) {
 		digit = curr / exp;
-		curr = curr % exp;
-		exp /= 10;
+
+		ret += digit*exp;
 
 		printf("got digit %d\n", digit);
+
+		curr = curr % exp;
+		exp /= 10;
 	}
 
-	return 0;
+	return ret;
 }
