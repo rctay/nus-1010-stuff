@@ -24,7 +24,7 @@ int double_digit(int num) {
 	for (i = 0; i <= digits; i++) {
 		digit = curr / exp;
 
-		ret += digit*exp;
+		ret += exp * digit * 2;
 
 		printf("got digit %d\n", digit);
 
