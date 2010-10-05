@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#define SINGLE_DIGIT(x) (x % 10)
+
 int double_digit(int num);
 
 int main () {
@@ -24,7 +26,7 @@ int double_digit(int num) {
 	for (i = 0; i <= digits; i++) {
 		digit = curr / exp;
 
-		ret += exp * digit * 2;
+		ret += exp * SINGLE_DIGIT(digit * 2);
 
 		printf("got digit %d\n", digit);
 
