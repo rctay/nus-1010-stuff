@@ -28,8 +28,6 @@ int double_digit(int num) {
 
 		ret += exp * SINGLE_DIGIT(digit * 2);
 
-		printf("got digit %d\n", digit);
-
 		curr = curr % exp;
 		exp /= 10;
 	}
