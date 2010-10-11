@@ -3,13 +3,14 @@
 /* Print out an int[] on a line, with a space between each element. */
 void print_int_arr(int *ptr, int len) {
 	int i;
-	if (len >= 1)
+	if (len >= 1) {
 		printf("%d", *ptr);
 
-	for (i = 1; i < len; i++)
-		printf(" %d", *(ptr + i));
+		for (i = 1; i < len; i++)
+			printf(" %d", *(ptr + i));
 
-	printf("\n");
+		printf("\n");
+	}
 }
 
 void swap_smallest_to_front(int *ptr, int len) {
