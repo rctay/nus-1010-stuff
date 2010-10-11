@@ -21,24 +21,29 @@ void swap_smallest_to_front(int *ptr, int len) {
 	/* value of array at current position */
 	int curr;
 
-	/* current minimum and position of minimum */
-	int min;
-	int min_pos;
+	/* current minimum */
+	int *min_ptr = ptr;
+
+	/* old head - used later on */
+	int old;
 
 	if (len >= 1) {
 		/* first element */
-		min = ptr[0];
-		min_pos = 0;
+		min_ptr = ptr;
 		/* immediately start with next element */
 		for (i = 1; i < len; i++) {
-			curr = *(ptr + i);
-			if (curr < min) {
-				min_pos = i;
-				min = curr;
-			}
+			curr = *(++ptr);
+			if (curr < *min_ptr)
+				min_ptr = ptr;
 		}
-		*(ptr + min_pos) = *ptr;
-		*ptr = min;
+
+		/* reset ptr */
+		ptr -= len - 1;
+
+		/* save temporarily the first element */
+		old = *ptr;
+		*ptr = *min_ptr;
+		*min_ptr = old;
 	}
 }
 
