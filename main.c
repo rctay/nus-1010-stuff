@@ -18,11 +18,8 @@ void swap_smallest_to_front(int *ptr, int len) {
 	/* position */
 	int i;
 
-	/* value of array at current position */
-	int curr;
-
 	/* current minimum */
-	int *min_ptr = ptr;
+	int *min_ptr;
 
 	/* old head - used later on */
 	int old;
@@ -32,8 +29,7 @@ void swap_smallest_to_front(int *ptr, int len) {
 		min_ptr = ptr;
 		/* immediately start with next element */
 		for (i = 1; i < len; i++) {
-			curr = *(++ptr);
-			if (curr < *min_ptr)
+			if (*(++ptr) < *min_ptr)
 				min_ptr = ptr;
 		}
 
