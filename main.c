@@ -53,8 +53,9 @@ void sel_sort(int *ptr, int len) {
 int main() {
 	int input;
 	int len;
-	int *arr;
-	int *ptr;
+
+	/* warning: int* a, b won't work! */
+	int *arr, *ptr;
 	int i;
 
 	while (scanf("%d", &input) == 1) {
