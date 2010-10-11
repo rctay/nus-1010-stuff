@@ -56,6 +56,13 @@ int main() {
 	/* warning: int* a, b won't work! */
 	int *arr, *ptr;
 
+	/*
+	 * Read a series of integers; the first is the length <n> of the
+	 * sequence of integers to be sorted, and all other integers (up
+	 * to <n>) will be treated as the integers to be sorted.
+	 *
+	 * Length <n> must be at least 2.
+	 */
 	while (scanf("%d", &len) == 1) {
 		if (! (len >= 2)) {
 			fprintf(stderr, "Please enter a valid length!\n");
