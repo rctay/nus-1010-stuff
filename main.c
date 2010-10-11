@@ -1,5 +1,17 @@
 #include <stdio.h>
 
+/* Print out an int[] on a line, with a space between each element. */
+void print_int_arr(int *ptr, int len) {
+	int i;
+	if (len >= 1)
+		printf("%d", *ptr);
+
+	for (i = 1; i < len; i++)
+		printf(" %d", *(ptr + i));
+
+	printf("\n");
+}
+
 void swap_smallest_to_front(int *ptr, int len) {
 	/* position */
 	int i;
@@ -34,18 +46,6 @@ void sel_sort(int *ptr, int len) {
 	int i;
 	for (i = 0; i < len - 1; i++)
 		swap_smallest_to_front(ptr + i, len - i);
-}
-
-/* Print out an int[] on a line, with a space between each element. */
-void print_int_arr(int *ptr, int len) {
-	int i;
-	if (len >= 1)
-		printf("%d", *ptr);
-
-	for (i = 1; i < len; i++)
-		printf(" %d", *(ptr + i));
-
-	printf("\n");
 }
 
 int main() {
