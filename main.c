@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Print out an int[] on a line, with a space between each element. */
 void print_int_arr(int *ptr, int len) {
@@ -50,10 +51,30 @@ void sel_sort(int *ptr, int len) {
 }
 
 int main() {
-	int arr[] = {1,-1,2,5,3,-2};
-	int len = sizeof(arr)/sizeof(int);
-	sel_sort(&arr[0], len);
-	print_int_arr(arr, len);
+	int input;
+	int len;
+	int *arr;
+	int *ptr;
+	int i;
+
+	while (scanf("%d", &input) == 1) {
+		len = input;
+		arr = malloc(len * sizeof(int));
+		ptr = arr;
+		for (i = 0; i < len; i++) {
+			if (scanf("%d", &input) == 1) {
+				*ptr = input;
+				ptr++;
+			}
+		}
+		sel_sort(arr, len);
+		print_int_arr(arr, len);
+
+		free(arr);
+	}
+
+	if (arr)
+		free(arr);
 
 	return 0;
 }
