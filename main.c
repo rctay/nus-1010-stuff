@@ -1,8 +1,13 @@
 #include <stdio.h>
 
 void swap_smallest_to_front(int *ptr, int len) {
+	/* position */
 	int i;
+
+	/* value of array at current position */
 	int curr;
+
+	/* current minimum and position of minimum */
 	int min;
 	int min_pos;
 
@@ -10,6 +15,7 @@ void swap_smallest_to_front(int *ptr, int len) {
 		/* first element */
 		min = ptr[0];
 		min_pos = 0;
+		/* immediately start with next element */
 		for (i = 1; i < len; i++) {
 			curr = *(ptr + i);
 			if (curr < min) {
@@ -23,11 +29,14 @@ void swap_smallest_to_front(int *ptr, int len) {
 }
 
 void sel_sort(int *ptr, int len) {
+	/* "recursively" partition the array, bringing the smallest
+	 * element to the front each time. */
 	int i;
 	for (i = 0; i < len - 1; i++)
 		swap_smallest_to_front(ptr + i, len - i);
 }
 
+/* Print out an int[] on a line, with a space between each element. */
 void print_int_arr(int *ptr, int len) {
 	int i;
 	if (len >= 1)
@@ -35,7 +44,7 @@ void print_int_arr(int *ptr, int len) {
 
 	for (i = 1; i < len; i++)
 		printf(" %d", *(ptr + i));
-	
+
 	printf("\n");
 }
 
