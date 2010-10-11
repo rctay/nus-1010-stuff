@@ -57,6 +57,11 @@ int main() {
 	int *arr, *ptr;
 
 	while (scanf("%d", &len) == 1) {
+		if (! (len >= 2)) {
+			fprintf(stderr, "Please enter a valid length!\n");
+			continue;
+		}
+
 		arr = malloc(len * sizeof(int));
 		ptr = arr;
 
