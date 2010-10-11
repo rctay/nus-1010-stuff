@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall
-SOURCE=foo.c
+SOURCE=double_digits.c
 
 TEST_EXPECTED=exp
 TEST_ACTUAL=act
