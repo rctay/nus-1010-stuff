@@ -25,16 +25,19 @@ void swap_smallest_to_front(int *ptr, int len) {
 	int old;
 
 	if (len >= 1) {
-		/* first element */
-		min_ptr = ptr;
+		/* first element, then advance */
+		min_ptr = ptr++;
 		/* immediately start with next element */
 		for (i = 1; i < len; i++) {
-			if (*(++ptr) < *min_ptr)
+			if (*ptr < *min_ptr)
 				min_ptr = ptr;
+
+			/* advance */
+			ptr++;
 		}
 
 		/* reset ptr */
-		ptr -= len - 1;
+		ptr -= len;
 
 		/* save temporarily the first element */
 		old = *ptr;
