@@ -37,6 +37,8 @@ void swap_smallest_to_front(int *ptr, int len) {
 
 		/* save temporarily the first element */
 		old = *ptr;
+
+		/* swap */
 		*ptr = *min_ptr;
 		*min_ptr = old;
 	}
