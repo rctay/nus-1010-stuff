@@ -50,31 +50,6 @@ int main()
     while (search[length] != '\0' && length <= 20)
         length++;
 
-
-/***********/
-printf("%d", size);
-
-
-    for(i=0; i<size; i++)
-    {   for (j=0; j<size; j++)
-        {
-            printf("%c", input[i][j]);
-
-        }
-        printf("row%d",i);
-    }
-
-printf("last letter scanned: %c", input[8][8]);
-
-    //for(i=0; i<7; i++){
-
-    printf("%s", search);
-    //}
-/************/
-
-
-
-
     if (set_first_pos(input, size, search[0], &x, &y)) {
         fprintf(stderr, "not found!\n");
         return -1;
