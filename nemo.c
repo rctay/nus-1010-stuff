@@ -5,7 +5,7 @@
 #define FALSE 0
 
 int set_first_pos(char input[MAX][MAX], int size, char first_char, int* x, int* y);
-void FindLtoR(char input[][MAX], char word[], int size, int length, int x0, int y0);
+int FindLtoR(char input[][MAX], char word[], int size, int length, int x0, int y0);
 //void FindRtoL ( char input[][MAX], char word[], int size, int length);
 //void FindTtoB ( char input[][MAX], char word[], int size, int length);
 //void FindBtoT ( char input[][MAX], char word[], int size, int length);
@@ -55,7 +55,8 @@ int main()
         return -1;
     }
 
-    FindLtoR (input, search, size, length, x, y);
+    if (FindLtoR(input, search, size, length, x, y))
+        ; /* try another search direction... */
 
 /*
     switch ( direction ){
@@ -86,14 +87,18 @@ int set_first_pos(char input[MAX][MAX], int size, char first_char, int* x, int* 
     return -1;
 }
 
-void FindLtoR(char input[][MAX], char word[], int size, int length, int x0, int y0) {
+int FindLtoR(char input[][MAX], char word[], int size, int length, int x0, int y0) {
     int k = 1;
     while (k < length && input[x0][y0+k] == word[k])
         k++;
 
     /* matched */
-    if (k == length)
+    if (k == length) {
         printf("(%d,%d) (%d,%d)\n", x0, y0, x0, y0+k-1);
+        return 0;
+    }
+
+    return -1;
 }
 
 //char FindRtoL ( char input[][MAX], char target[], int size, length);
