@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall
 EXE=.exe
-SOURCE=foo.c
+SOURCE=nemo.c
 
 TEST_EXPECTED=exp
 TEST_ACTUAL=actual
