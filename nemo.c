@@ -98,8 +98,7 @@ int set_first_pos(char input[MAX][MAX], int size, char first_char, struct pos* s
 
 int FindLtoR(char input[][MAX], char word[], int size, int length, struct pos* start_pos, struct pos *end_pos) {
     int k = 1;
-
-    while (k < length && input[start_pos->x][start_pos->y+k] == word[k])
+    while (k < length && start_pos->y+k < size && input[start_pos->x][start_pos->y+k] == word[k])
         k++;
 
     /* matched */
