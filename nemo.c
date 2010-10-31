@@ -109,12 +109,15 @@ printf("into Find loop\n");
 
     if (found==TRUE)
     {
-        for(k=1; k<length; k++)
-        {
-            if(input[i][j+k]!=word[k])
-                found=FALSE;
-              else found=TRUE;
-        }
+        /* undo increment while exiting for loop (i) */
+        i--;
+        k = 1;
+        while (k < length && input[i][j+k] == word[k])
+            k++;
+
+        /* matched */
+        if (k == length)
+            printf("(%d,%d) (%d,%d)\n", i, j, i, j+k-1);
     }
 }
 
