@@ -44,6 +44,10 @@ int main()
 
 //    }
 
+    /* determine length of search string */
+    while (search[length] != '\0' && length <= 20)
+        length++;
+
 
 /***********/
 printf("%d", size);
