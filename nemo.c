@@ -12,7 +12,7 @@ void FindLtoR ( char input[][MAX], char search[], int size, int length);
 
 int main()
 {
-    char input[MAX][MAX]={{0}};
+    char input[MAX][MAX]={{0}}, read;
     int i, j, size, length=0;
     char search [20];
     char direction;
@@ -25,8 +25,16 @@ int main()
 
 
     for (i=0; i<size; i++) {
-        for (j=0; j<size; j++) {
-            scanf( "%c", &input[i][j]);
+        j = 0;
+        while (j<size && scanf("%c", &read) == 1) {
+            switch (read) {
+            case '\r':
+            case '\n':
+                continue;
+            default:
+                input[i][j] = read;
+                j++;
+            }
         }
     }
 
