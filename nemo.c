@@ -20,33 +20,33 @@ int main()
 //scanf("%s", word);
 
 //printf("%s", word);
-    
+
     scanf("%d", &size);
- 
-    
+
+
     for(i=0; i<size; i++)
     {   for (j=0; j<size; j++)
         {
-            scanf( "%c", &input[i][j]); 
+            scanf( "%c", &input[i][j]);
         }
     }
 
 //    for (i=0; i<7; i++)
 //    {
      scanf("%s", search);
-     
+
 //    }
 
-    
+
 /***********/
 printf("%d", size);
 
- 
+
     for(i=0; i<size; i++)
     {   for (j=0; j<size; j++)
         {
-            printf("%c", input[i][j]); 
-        
+            printf("%c", input[i][j]);
+
         }
         printf("row%d",i);
     }
@@ -54,7 +54,7 @@ printf("%d", size);
 printf("last letter scanned: %c", input[8][8]);
 
     //for(i=0; i<7; i++){
-    
+
     printf("%s", search);
     //}
 /************/
@@ -65,9 +65,9 @@ printf("last letter scanned: %c", input[8][8]);
 
 /*
     switch ( direction ){
-            case 'r': 
+            case 'r':
 
-            case 'l': 
+            case 'l':
 
             case 'u':
 
@@ -92,8 +92,8 @@ printf("into Find loop\n");
                if ( input[i][j]==word[0])
                {found= TRUE;
                printf("input found:%c\nlocation:%d,%d\n", input[i][j],i,j);
-               break;}              
-        }       
+               break;}
+        }
     }
 
     if (found==TRUE)
