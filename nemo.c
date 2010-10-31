@@ -10,7 +10,7 @@ struct pos {
 };
 
 int set_first_pos(char input[MAX][MAX], int size, char first_char, struct pos* start_pos);
-int FindLtoR(char input[][MAX], char word[], int size, int length, struct pos* start_pos);
+int FindLtoR(char input[][MAX], char word[], int size, int length, struct pos* start_pos, struct pos* end_pos);
 //void FindRtoL ( char input[][MAX], char word[], int size, int length);
 //void FindTtoB ( char input[][MAX], char word[], int size, int length);
 //void FindBtoT ( char input[][MAX], char word[], int size, int length);
@@ -19,7 +19,7 @@ int FindLtoR(char input[][MAX], char word[], int size, int length, struct pos* s
 int main()
 {
     char input[MAX][MAX]={{0}}, read;
-    struct pos start_pos;
+    struct pos start_pos, end_pos;
     int i, j, size, length=0;
     char search [20];
     char direction;
@@ -61,8 +61,11 @@ int main()
         return -1;
     }
 
-    if (FindLtoR(input, search, size, length, &start_pos))
-        ; /* try another search direction... */
+    if (!FindLtoR(input, search, size, length, &start_pos, &end_pos)) {
+        printf("(%d,%d) (%d,%d)\n", start_pos.x, start_pos.y, end_pos.x, end_pos.y);
+        return 0;
+    }
+    /* try another search direction... */
 
 /*
     switch ( direction ){
@@ -93,14 +96,16 @@ int set_first_pos(char input[MAX][MAX], int size, char first_char, struct pos* s
     return -1;
 }
 
-int FindLtoR(char input[][MAX], char word[], int size, int length, struct pos* start_pos) {
+int FindLtoR(char input[][MAX], char word[], int size, int length, struct pos* start_pos, struct pos *end_pos) {
     int k = 1;
+
     while (k < length && input[start_pos->x][start_pos->y+k] == word[k])
         k++;
 
     /* matched */
     if (k == length) {
-        printf("(%d,%d) (%d,%d)\n", start_pos->x, start_pos->y, start_pos->x, start_pos->y+k-1);
+        end_pos->x = start_pos->x;
+        end_pos->y = start_pos->y+k-1;
         return 0;
     }
 
