@@ -45,4 +45,13 @@ public class ArithmeticBinOp {
 	public static int do_op(String op, int a, int b) {
 		return get_op(op).operate(a, b);
 	}
+	
+	public static boolean check_op(String op) {
+		try {
+			get_op(op);
+			return true;
+		} catch (UnknownBinOpException e) {
+			return false;
+		}
+	}
 }

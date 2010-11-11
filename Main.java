@@ -23,7 +23,7 @@ public class Main {
 					System.out.println("--");
 					System.out.println("num\tPushes a number to the stack");
 					System.out.println("num4eva\tEnters number input mode");
-					System.out.println("op\tPerforms a binary operation through the stack");
+					System.out.println("[+-*/]\tPerforms a binary operation through the stack");
 					System.out.println("ans\tGet the top most number");
 					System.out.println("clear\tClears the stack");
 					System.out.println("help\tPrints this message");
@@ -48,17 +48,6 @@ public class Main {
 						}
 					}
 					System.out.println("(quitting number input mode...)");
-    					
-				} else if (token.equals("op")) {
-					System.out.println("Enter binary operation to perform on stack:");
-					token = br.readLine().trim();
-					
-					try {
-						calc_echo(
-								calc.operation_input(token));
-					} catch (UnknownBinOpException e) {
-						System.err.println("Unknown binary operation!");
-					}
 				} else if (token.equals("ans")) {
 					calc_echo(
 							calc.answer());
@@ -66,7 +55,13 @@ public class Main {
 					calc_echo(
 							calc.clear());
 				} else {
-					System.err.println("Unknown operation!");
+					// might be a binop
+					if (!ArithmeticBinOp.check_op(token)) {
+						System.err.println("Unknown operation!");
+						continue;
+					}
+					calc_echo(
+							calc.operation_input(token));
 				}
 			} catch (IOException e) {
 				;
