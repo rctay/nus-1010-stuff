@@ -22,6 +22,7 @@ public class Main {
 					System.out.println("Accepted commands:");
 					System.out.println("--");
 					System.out.println("num\tPushes a number to the stack");
+					System.out.println("num4eva\tEnters number input mode");
 					System.out.println("op\tPerforms a binary operation through the stack");
 					System.out.println("ans\tGet the top most number");
 					System.out.println("clear\tClears the stack");
@@ -33,6 +34,21 @@ public class Main {
 							calc.number_input(
 									Integer.parseInt(
 											br.readLine().trim())));
+				} else if (token.equals("num4eva")) {
+					System.out.println("(entering number input mode; enter a non-integer to quit)");
+					while (true) {
+						try {
+							System.out.println("Enter number:");
+        					calc_echo(
+        							calc.number_input(
+        									Integer.parseInt(
+        											br.readLine().trim())));
+						} catch (NumberFormatException e) {
+							break;
+						}
+					}
+					System.out.println("(quitting number input mode...)");
+    					
 				} else if (token.equals("op")) {
 					System.out.println("Enter binary operation to perform on stack:");
 					token = br.readLine().trim();
