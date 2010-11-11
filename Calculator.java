@@ -41,5 +41,7 @@ public class Calculator {
 		System.out.printf("calc says \"%s\": %s\n", calc.number_input(3), calc.answer());
 		System.out.printf("calc says \"%s\": %s\n", calc.number_input(-1), calc.answer());
 		System.out.printf("add all, calc says: \"%s\": %s\n", calc.operation_input("+"), calc.answer());
+		System.out.printf("calc says \"%s\": %s\n", calc.number_input(3), calc.answer());
+		System.out.printf("test unknown op, calc says: \"%s\": %s\n", calc.operation_input("&"), calc.answer());
 	}
 }
